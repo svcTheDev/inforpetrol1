@@ -208,21 +208,43 @@ html {
 }
 
 .carousel {
-  background: linear-gradient(rgb(20, 100, 212), rgba(38, 99, 184, 0.254)),
-  url() center no-repeat;
+
+  background: linear-gradient(rgb(1, 7, 15), rgb(3, 9, 16)),
+  url();
+  height: 92vh;
 }
 
 .slide-img {
-  width: 50%;
+  width: 100%;
 }
-/* 
-.carousel-inner > .item .active {
 
-} */
-
-.carousel-inner > .item > img {
+.carousel-inner {
   height: 92vh;
   object-fit: cover;
+
+}
+
+.carousel-inner > .item > img {
+  opacity: 0.8;
+}
+
+
+@media screen and (min-width: 768px) { 
+    .carousel-caption {
+        right: 50%;
+        left: 10%;
+        /* padding-bottom: 30px; */
+        top: 26rem;
+    }
+}
+
+.carousel-caption {
+  font-size: 5rem;
+  text-shadow: 0 1px 2px rgb(0 0 0);
+}
+
+.carousel-control, .glyphicon-chevron-left {
+  top: 90%;
 }
 
 /* End of Header */
