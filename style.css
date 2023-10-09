@@ -225,7 +225,7 @@ html {
 }
 
 .carousel-inner > .item > img {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 
@@ -246,5 +246,17 @@ html {
 .carousel-control, .glyphicon-chevron-left {
   top: 90%;
 }
+
+.video-overlay video {
+  position: absolute;
+  top: 45%;
+  left: 70%;
+  width: 20%;
+  height: 40%;
+  object-fit: cover;
+  opacity: 1; /* Adjust the opacity as needed */
+  z-index: 1; /* Ensure the video is on top of the background image */
+}
+
 
 /* End of Header */
