@@ -266,31 +266,52 @@ html {
 /* End of Header */
 
 
-/* Info about us */
+/* Our company */
 
 section {
   background-color: white;
   height: 100vh;
 }
 
-.info-container {
+.company-container {
   position: absolute;
   top: 85%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2rem 4rem #777;
-  width: 40%;
-  height: 30rem;
+  width: 50%;
+  height: 100%;
+  max-height: 65rem;
   margin: 5rem 15rem 50rem 15rem;
   background-color: white;
 }
 
-.info-about-heading {
-  height: 40rem;
+.company-about-heading {
+  position: relative;
+  height: 30%;
   width: 100%;
-  background-image: url(images/forest.jpg);
+  background-image: url(images/bg/1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-.grid-info {
-  
+.company-about-heading h1 {
+  font-size: 36px;
+  position: absolute;
+  top: 60%;
+  color: white;
+  margin-left: 3rem;
+}
+
+.grid-company {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 5px;
+  height: 48rem;
+}
+
+.company-paragraph {
+  font-size: 1.7rem;
 }
