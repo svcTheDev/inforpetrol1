@@ -1,0 +1,1324 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+<!--=============== basico  ===============-->
+
+	<meta charset="UTF-8">
+	<title>Inforpetrol: procesamiento de datos sísmicos 2D y 3D</title>
+	<meta name="description" content="INFORPETROL S.A. es una compañía colombiana al servicio de la industria del petróleo; desde el año 1994 se ha posicionado como una de las principales empresas de procesamiento de datos sísmicos 2D y 3D, brindando soluciones geofísicas a nuestros clientes en Colombia y el exterior.">
+	<meta name="keywords" content="Inforpetrol, Colombia, Bogotá, Suramerica, SeisSpace, SeismicStudio, Tsunami, PSTM y PSDM azimutales y anisotrópicas, Filtro radial predictivo, Interview-3D,  Análisis anisotrópico y Hi-fi, Techco software, Migración PSTM Isotrópica y Anisotrópica, interpretación de velocidades Estructurales, PSTM–CVS, Atenuación de Amplitudes, Anómalas (AAA), PSTM – Litologica (True Amplitud), Construcción de Modelos de Refracción, PSTM Fast Track 3D, PSTM de alta Resolución (HIFI-VHF), PSTM con Interpolación 5D, PSTM, Isotrópica y Anisotrópica, AVO  e Inversión Acústica, Procesamiento Especializado para Minería, PSTM por Gathers Híbridos, PSTM  de Onda S y Onda Convertida, PSTM Azimutal, Procesamiento  de datos sísmicos en  profundidad, AVO, inversión y atributos, interpretación">
+	<meta name="robots" content="all" />
+	<meta name="copyright" content="produtco positivo" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+<!--=============== css  ===============-->	
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/magnific-popup.css" media="all">
+	<link rel="stylesheet" href="css/superslides.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+
+<!--=============== fuentes  ===============-->
+
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700|Open+Sans+Condensed:400,300|Play:400,700' rel='stylesheet' type='text/css'>
+
+<!--=============== modernizr  ===============-->
+
+	<script src="js/modernizr.custom.97074.js"></script>
+
+<!--=============== canvas  ===============-->
+
+	<script src="js/raphael-min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+		window.onload = function () {
+			var R = Raphael("paper", 612, 708.111);
+			R.setViewBox(0, 0, 612, 708.111);
+			var attr = {
+				fill: "rgba(0,0,0,0.1)",
+				stroke: "#999",
+				"stroke-width": 1,
+				"stroke-linejoin": "round"
+			};
+			var aus = {};
+			aus.a = R.path("M489.372,261.905h6.824l4.666,17.854l11.505,14.734  l2.198,39.678l-27.002,1.063L489.372,261.905z").attr(attr);
+			aus.b = R.path("M281.199,279.759v-23.332l33.819-0.885l39.931-29.549v-13.49  l7.815-1.902l1.918-30.842h13.806l2.261-21.549l11.671,0.277l2.501,31.667l-10.448,2.868l0.333,23.779l-13.669,4.558l-2.027,14.683  l-14.159,1.91l-34.797,25.574l-0.403,16.233H281.199z").attr(attr);
+			aus.c = R.path("M357.871,265.689h28.256l0.988-13.108l20.17,13.108h5.423  l24.336-31.3l0.644-16.745l-3.954-12.119V192.24l-41.315-33.753l2.501,31.667l3.596,8.539l-0.823,13.81l-26.557,8.855l-2.027,14.683  l-14.159,1.91L357.871,265.689z").attr(attr);
+			aus.d = R.path("M464.339,150.436h61.597v10.756l-18.95,8.778l-40.456-1.562  L464.339,150.436z").attr(attr);
+			aus.e = R.path("M441.134,232.321l17.309-18.285l13.37,22.005L452.707,250.6  L441.134,232.321z").attr(attr);
+			aus.f = R.path("M311.299,474.026h33.299l-4.537,49.245l-24.61,2.444  L311.299,474.026z").attr(attr);
+			aus.g = R.path("M390.266,477.542l14.209-0.941l-0.613,29.785h5.967  l1.654,14.255l-7.008,0.979l-27.597,27.224l-8.571,32.06l-11.235,8.11l-15.47-1.61l-17.758,20.928l-6.902-13.58l14.688-22.661  l30.015-2.829l4.447-17.029l-21.238-7.079v-36.736l28.73-23.296l14.308,0.024L390.266,477.542z").attr(attr);
+			aus.h = R.path("M369.107,485.114l0.001-10.85l7.603-0.401l0.317-9.59  l19.622-41.026l-3.202-16.818v-5.919l35.594-62.894l1.357-57.858h17.034l-0.438,13.489h14.345v19.229h6.81l0.971,42.508  l-26.653,50.635l-19.486,1.45l-6.79,24.936l-5.932,0.753l-8.055,24.758l-6.059,1.198l-8.258,26.433L369.107,485.114z").attr(attr);
+			aus.i = R.path("M404.926,459.29h40.204l47.482-32.304l1.205-16.221  l-12.301,0.486l-27.034,7.703l-34.666-0.257l-3.624,13.308l-5.932,0.753l-8.055,24.758L404.926,459.29z").attr(attr);
+			aus.j = R.path("M408.527,552.233l1.733-17.317l16.034-13.295l36.55-27.43  l-2.352-8.218l43.597-40.865l48.686-40.866l-24.453-43.404l11.355-12.962l14.943,3.804l7.224,45.774l6.888-8.075l15.793-1.382  l-2.245,26.562l9.665,9.849l1.972,36.841l-81.023,64.467l2.198,49.939l-35.645,2.389L408.527,552.233z").attr(attr);
+			aus.k = R.path("M408.963,578.994l4.587,6.371l-11.851,9.681l11.851,49.437 l0.853,16.901l-20.953,0.206l-20.9-28.205l-63.944,44.896l-25.23-2.581v-19.674l10.194-15.011l25.75-18.901l46.363-26.306 L408.963,578.994z").attr(attr);
+			aus.m = R.path("M0 0 L 0 1 L 1 1 L 1 0 z").attr(attr);
+			aus.n = R.path("M611 707.111 L 611 708.111  L 612 708.111  L 612 707.111z").attr(attr);
+			var current = null;
+			for (var state in aus) {
+				aus[state].color = Raphael.getColor();
+				(function (st, state) {
+					st[0].style.cursor = "pointer";
+					st[0].onmouseover = function () {
+						current && aus[current].animate({fill: "#000", stroke: "#999"}, 200) && (document.getElementById(current).style.display = "");
+						st.animate({fill: st.color, stroke: "#FFF"}, 200);
+						st.toFront();
+						R.safari();
+						document.getElementById(state).style.display = "block";
+						current = state;
+                        //console.log(st);
+					};
+					st[0].onmouseout = function () {
+						st.animate({fill: "#000", stroke: "#999"}, 200);
+						st.toFront();
+						R.safari();
+					};
+					if (state == "a") {
+						st[0].onmouseover();
+					}
+				})(aus[state], state);
+			}
+			R.canvas.setAttribute('preserveAspectRatio', 'xMaxYMax meet');
+		};
+    </script>
+	
+<!--=============== google map ===============-->
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<!--=============== ie styles  ===============-->
+
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="css/ie8.css" /><![endif]-->
+	
+<!--=============== favicons ===============-->
+
+	<link rel="shortcut icon" href="images/favicon.ico">
+
+</head>
+
+<body onLoad="initialize()">
+
+<div id="main">
+
+<!--=============== navegación lateral ===============-->
+
+	<div class="navigation isDown">
+	
+		<div class="nav-overlay"></div>
+		
+		<div class="nav-button transition">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		
+		<div class="inner">
+			<a href="/" class="alogo"><img src="images/logo-color.png" class="logo" alt="" title="" width="180"></a>
+			
+			<div class="link-holder" id="nav">
+				<ul>
+					<li><a href="#home">Inicio</a></li>
+					<li><a href="#company">Compa&ntilde;&iacute;a</a></li>
+					<li><a href="#servises">Servicios</a></li>
+					<li><a href="#facts">Experiencia</a></li>
+					<li><a href="#portfolio">Tecnolog&iacute;a</a></li>
+					<li><a href="#contact">Contacto</a></li>
+					<li><a href="#legal">Informaci&oacute;n Legal</a></li>
+				</ul>
+			</div>
+            
+            <!--a href="http://www.gys.com.co" class="foot"><img src="images/gys.png" width="130" heigt="46"/></a-->
+			
+		</div>
+			 
+	</div>	<!--=============== navegación fin ===============-->	
+	
+	<div class="overlay fixed-overlay body-overlay"></div>	
+	
+	<div class="wrapper">
+	
+		<!--=============== intro slide ===============-->
+
+		<div id="intro">
+		
+			<div id="topSlide">
+				<div id="slides">
+                    <img src="images/logo-color.png" class="logo-color"/>
+					<ul class="slides-container">
+					
+						<!-- Slide amanecer -->
+					
+						<li class="high">
+							<div class="rester"></div>
+								<div class="container">
+									<h1 class="white">25 AÑOS</h1>
+									<h3>Posicionándonos como una de las principales empresas en procesamiento de datos sísmicos 2D y 3D</h3>
+									<div class="patern clear"></div>
+								</div>
+				
+							<div style="background-image: url('images/bg/5866587-large.jpg');" class="slides-big-img"></div>
+						</li>
+
+						<!-- Slide proyecto destacado 2 -->
+					
+						<li>
+							<div class="rester"></div>
+								<div class="container">
+									<h3>Realizamos el</h3>
+									<h1 class="gray">PROCESAMIENTO E INTERPRETACIÓN</h1>
+									<h3>DE INFORMACIÓN EN LA INDUSTRIA ENERGÉTICA GLOBAL, CON EL USO DE HERRAMIENTAS TECNOLÓGICAS</h3>
+								</div>
+				
+							<div style="background-image: url('images/bg/5922768-large.jpg');" class="slides-big-img"><a href="#" ></a></div>
+						</li>
+
+						<!-- Slide proyecto destacado 1 -->
+					
+						<li>
+							<div class="rester"></div>
+								<div class="container">
+									<h3>Contamos con</h3>
+									<a href="#portfolio" target="_blank"><h1 class="gray">SOFTWARE ESPECIALIZADO</h1></a>
+									<h3>para cada una de las etapas del procesamiento de datos sísmicos.</h3>
+									<div class="patern clear"></div>
+								</div>
+				
+							<div style="background-image: url('images/bg/cano-cristales.jpg');" class="slides-big-img"><a href="#" ></a></div>
+						</li>
+
+					</ul>
+
+					<div class="slides-navigation">
+					  <a href="#" class="prev"><i class="fa fa-long-arrow-left fa-2x"></i></a>
+					  <a href="#" class="next"><i class="fa fa-long-arrow-right fa-2x"></i></a>
+					</div>
+					
+	  			</div>
+				
+			</div> 
+			
+		</div><!--=============== intro fin ===============-->
+		
+		
+		<!--=============== seccion acerca manifiesto ===============-->
+
+		<div id="home" class="sections ws">
+			<div class="content">
+
+				<div class="quote-icon"><i class="fa fa-quote-right"></i></div>
+
+				<div class="container">
+					<h3 class="sections-head">Qué somos</h3>
+					<h2>La Empresa</h2>
+					
+					<div id="owl-demo" class="owl-carousel">
+	 
+						<!-- slide 1-->
+						
+						<div class="item fist-slide">
+							<div class="small-separator"></div>
+							<p><b>INFORPETROL S.A.</b> es una compañía colombiana al servicio de la industria del petróleo; desde el año 1994 se ha posicionado como una de las principales empresas de procesamiento de datos sísmicos 2D y 3D, brindando soluciones geofísicas a nuestros clientes en Colombia y el exterior.</p>
+							<div class="customNavigation">
+								<a class="btn next-slide transition lanch-sklills">siguiente</a>
+							</div>
+						</div>
+					  
+						<!-- slide 2 -->  
+						
+						<div class="item">
+
+							<div class="grid-3">
+							
+								<h3 class="bigtext">misi&oacute;n</h3>
+								<div class="small-separator"></div>
+								<p><b>Inforpetrol S.A.</b> es una empresa colombiana de servicios, cuya funciones apoyan los proyectos de gestión tecnológica de sus clientes mediante la evaluación, implementación y uso inteligente de herramientas disponibles; con un grupo humano altamente calificado para el manejo de información y datos. De esta manera, realiza sus actividades bajo condiciones de calidad con el fin de garantizar en forma equilibrada su propio desarrollo.</p>
+							
+							</div>
+							
+							<div class="grid-3">
+							
+								<h3 class="bigtext">visi&oacute;n</h3>
+								<div class="small-separator"></div>
+								<p>Nuestra visión es ser una empresa líder en la implementación y transferencia de conocimiento tecnológico con servicios certificados; a partir de estándares internacionales para el apoyo a la gestión de los proyectos de nuestros clientes, garantizando la permanencia de la compañía a través del tiempo.</p>
+								
+							</div>	
+										  
+							<div class="clear"></div>
+							<hr class="seph">
+							
+							<div class="grid-3">
+						
+								<h3 class="bigtext">Responsabilidad social</h3>
+								<div class="small-separator"></div>
+								<p>Realizamos la contribución activa y voluntaria al mejoramiento social económico y ambiental, participando activamente en la construcción de casas para familias no favorecidas con la fundación <b>Pedalazos que construyen<b> <a href="http://www.pedalazos.com">www.pedalazos.com</a></p>
+								
+							</div>	
+								
+							<div class="grid-3">
+							
+								<h3 class="bigtext">pol&iacute;tica de calidad</h3>
+								<div class="small-separator"></div>
+								<p>La gerencia de <b>Inforpetrol S.A.</b> asume el compromiso de proporcionar productos y servicios que cumplan con los requerimientos de nuestros clientes, aplicando procesos estandarizados, eficientes y promoviendo el trabajo en equipo, mediante el desarrollo de alternativas tecnológicas.</p>
+								
+							</div>
+
+							<div class="customNavigation clear">
+								 <a class="btn close transition">siguiente</a>
+							</div>
+
+						</div>
+		
+					</div>
+				
+				</div>
+			</div>
+		</div><!--===============  seccion acerca fin ===============-->
+
+
+		<div id="company" class="sections">
+			<div class="light-blue sections">
+				<div class="content">
+
+					<div class="quote-icon"><i class="fa fa-quote-right"></i></div>
+
+					<div class="container">
+						<h2>Nuestra Compañía</h2>
+
+						<div class="paragraph sections">
+							<div class="grid-2">
+								<p><b>INFORPETROL S.A.</b> es una compañía colombiana al servicio de la industria del petróleo; desde el año 1994 se ha posicionado como una de las principales empresas de procesamiento de datos sísmicos 2D y 3D, brindando soluciones geofísicas a nuestros clientes en Colombia y el exterior.</p>
+							
+							</div>
+
+							<div class="grid-2">
+								<p>Cuenta en su centro de proceso con personal capacitado, experiencia y conocimiento en el procesamiento y manejo de información sísmica que en conjunto con un cluster con capacidad para procesar 400 millones de trazas/mes, nos permite realizar procesamiento con  pruebas extensivas sobre datos sísmicos ofreciendo  tiempos de respuesta cortos con alta calidad en nuestros productos.</p>
+							
+							</div>
+
+							<div class="grid-2">
+								<p>Se caracteriza por brindar una política de puertas abiertas para que nuestros clientes nos visiten, revisen su información, el estado de la misma, e interactúen con nosotros en cualquier etapa de la ejecución de los proyectos y así poder obtener la retroalimentación necesaria permitiéndonos generar productos que llenan las expectativas de nuestros clientes.</p>
+							
+							</div>
+						</div>
+
+						<div class="paragraph sections">
+							<div class="grid-3">
+								<img src="images/bg/laptop.jpg" width="684" height="336" alt="software">
+							</div>
+							<div class="grid-3 list">
+								<p>Dispone de software especializado para cada una de las etapas de procesamiento:</p>
+								<ul>
+									<li><b>SeisSpace(ProMAX)®:</b> Secuencia básica de procesamiento.</li>
+									<li><b>SeismicStudio®:</b> Estáticas de refracción por tomografía. QC de geometrías 2D y 3D.</li>
+									<li><b>Tsunami®:</b> PSTM y PSDM azimutales y anisotrópicas.</li>
+									<li><b>Rfilt®:</b> Filtro radial predictivo.</li>
+									<li><b>Interview-3D:</b> Análisis anisotrópico y Hi-fi.</li>
+									<li><b>Techco software:</b> Migración PSTM Isotrópica y Anisotrópica, interpretación de velocidades Estructurales.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<!--=============== seccion servicios ===============-->
+
+		<div id="servises" class="sections">
+		
+			<div class="content">
+			
+				<div class="quote-icon"><i class="fa fa-cogs"></i></div>
+				<div class="rester"></div>
+				<div class="rester black"></div>
+				
+					<div class="container">
+						<h2 class="white">Servicios</h2>
+						<div class="small-separator ws"></div>
+						
+						<div class="row" id="service_boxes">
+						
+							<div class="service_box actser animaper">
+								<a name="0" class="animbox">Procesamiento en tiempo</a>
+							</div>
+							
+							<div class="service_box animaper">
+								<a name="1" class="animbox">Procesamiento especializado</a>
+							</div>
+							
+							<div class="service_box animaper">
+								<a name="2"  class="animbox">Procesamientoen profundidad</a>
+							</div>
+
+							<div class="service_box animaper">
+								<a name="3"  class="animbox">Inversión y atributos</a>
+							</div>
+
+							<div class="service_box animaper">
+								<a name="4"  class="animbox">Interpretación</a>
+							</div>
+
+							<div class="service_box animaper">
+								<a name="5"  class="animbox">Data Management</a>
+							</div>
+							
+						</div> 
+					</div>
+					
+					<div class="serviseslider-holder no-nav">
+						<div class="container">
+							<div class="serviseslider">
+							
+								<ul class="slides">
+								
+									<!-- primer-slide -->
+									
+									<li>
+									
+										<div class="icon-holder">
+											<i class="fa fa-desktop fa-2x"></i>
+										</div>
+										
+										<h3><span></span>Procesamiento de datos sísmicos en tiempo<span></span></h3>
+										
+										<h4></h4>
+					
+										<p>En su Centro de Proceso ejecuta proyectos de procesamiento de datos sísmicos 2D y 3D en tiempo utilizando diferentes métodos y herramientas para generar productos confiables con vista a apoyar los procesos de interpretación. En la línea de servicio  en tiempo Inforpetrol S.A; ofrece los siguientes servicios de procesamiento:</p>
+										<ul class="int">
+		                                    <li>PSTM–CVS, Atenuación de Amplitudes Anómalas (AAA). </li>
+		                                    <li>PSTM – Litologica (True Amplitud).</li>
+		                                    <li>Construcción de Modelos de Refracción.</li>
+		                                    <li>PSTM Fast Track 3D.</li>
+		                                    <li>PSTM de alta Resolución (HIFI-VHF). </li>
+		                                </ul>
+					
+									</li>
+									
+									<!-- segundo-slide -->
+									
+									<li>
+									
+										<div class="icon-holder">
+											<i class="fa fa-play-circle-o fa-2x"></i>
+										</div>
+										
+										<h3><span></span>Procesamiento especializado de datos sísmicos<span></span></h3>
+										<h4></h4>
+		
+										<ul class="int">
+		                                    <li>PSTM con Interpolación 5D.</li>
+		                                    <li>PSTM, Isotrópica y Anisotrópica.</li>
+		                                    <li>AVO e Inversión Acústica.</li>
+		                                    <li>Procesamiento Especializado para Minería.</li>
+		                                    <li>PSTM por Gathers Híbridos.</li>
+		                                    <li>PSTM de Onda S y Onda Convertida.</li>
+		                                    <li>PSTM Azimutal.</li>
+		                                </ul>
+					
+									</li>
+
+									<!-- tercer-slide -->
+									
+									<li>
+									
+										<div class="icon-holder">
+											<i class="fa fa-trophy fa-2x"></i>
+										</div>
+										
+										<h3><span></span>Procesamiento de datos sísmicos en profundiad<span></span></h3>
+										<h4></h4>
+		
+										<p>INFORPETROL S.A. , ofrece el servicio de Migración Pre-apilado en Profundidad (PSDM), el cual permite un mejor posicionamiento de los reflectores para resolver estructuras complejas, sombras de falla, pull-ups y pull-down, causados por variaciones de velocidades verticales y/o laterales. Para la ejecución de los proyectos PSDM, contamos con el software TSUNAMI, el cual incorpora capacidades como:</p>
+		                                <ul class="int">
+		                                    <li>Capacidad de manejo de buzamientos mayores a 90°.</li>
+		                                    <li>Migración de volúmenes 2D y 3D.</li>
+		                                    <li>Trayectorias de rayos usando reconstrucción de la ondicula frontal para PSDM.</li>
+		                                    <li>Preservación de Amplitudes para AVO. </li>
+		                                    <li>Sofisticado balanceo de la traza para compensar adquisiciones irregulares.</li>
+		                                    <li>Balanceo de la traza por offset.</li>
+		                                    <li>Actualización del modelo de velocidades por medio de Tomografía.</li>
+		                                    <li>Generación de apilados y gathers de offset común en profundidad.</li>
+		                                    <li>Migración de onda S.</li>
+		                                    <li>Migración dependiente de azimut.</li>
+		                                    <li>Estas características pueden ser aplicadas para el modelamiento en profundidad de mantos de Carbón en la industria minera.</li>
+		                                </ul>
+					
+									</li>
+										
+									<!-- cuarto-slide -->
+												
+									<li>
+									
+										<div class="icon-holder">
+											<i class="fa fa-pencil fa-2x"></i>
+										</div>
+										
+										<h3><span></span>AVO - Inversion y atributos<span></span></h3>
+										<p>INFORPETROL S.A., Ofrece procesamiento AVO, inversión acústica y cálculo de atributos. La Inversión se inicia con la construcción de un modelo que incorpora la información del pozo, calibrándolo con la sísmica por medio de sismogramas sintéticos, a partir de la velocidad de P-wave y de Gathers de Angulo Común y aplicando relaciones de Aki & Richard's, Pan & Gardner podemos generar:</p>
+		                                <ul class="int">
+		                                    <li>Cálculo de P-wave, y S-wave.</li>
+		                                    <li>Secciones de impedancia acústica velocidad y densidad.</li>
+		                                    <li>Generación de sismogramas sintéticos.</li>
+		                                    <li>Apilados Angulares.</li>
+		                                    <li>Cálculo de secciones de intercepto, gradiente y producto gradiente-intercepto.</li>
+		                                    <li>Cálculo de impedancias P y S.</li>
+		                                    <li>Secciones de relación de Poisson's y factor de fluido.</li>
+		                                    <li>Crossplot de intercepto-gradiente y los que el cliente requiera para su análisis.</li>
+		                                </ul>
+		                                    <p>Realizamos pruebas extensivas sobre atributos volumétricos, horizontes o intervalos, generando imágenes o volúmenes, los atributos basados en amplitudes y frecuencias sísmicas son medidas matemáticas y/o estadísticas de propiedades geométricas, cinemáticas y dinámicas, derivadas de los datos sísmicos pre o post apilados, antes o después de la migración.</p>
+		                                    <p>Los atributos sísmicos pueden ser empleados en interpretación estratigráfica para definir geometrías internas y sus terminaciones, o para revelar patrones relacionados con los ambientes sedimentarios, fallas y fracturas.</p>
+						
+									</li>
+
+									<!-- quinto-slide -->
+												
+									<li>
+									
+										<div class="icon-holder">
+											<i class="fa fa-pencil fa-2x"></i>
+										</div>
+										
+										<h3><span></span>Interpretación<span></span></h3>
+										<p>Con el recurso humano y tecnológico que poseemos, prestamos los servicios de Interpretación sísmica de yacimientos de gas y petróleo, interpretación de ambientes sub-superficiales locales y regionales, análisis de registros de pozos, propiedades del reservorio, y correlación sísmica con aspectos geológicos, También ofrecemos a nuestros clientes modelos conceptuales de yacimientos a partir de datos sísmicos y de pozo y la cuantificación en términos volumétricos de los hidrocarburos presentes en la zona de interés.</p>
+						
+									</li>
+                                    
+                                    <!-- sexto-slide -->
+									
+									<li>
+									
+										<div class="icon-holder">
+											<i class="fa fa-desktop fa-2x"></i>
+										</div>
+										
+										<h3><span></span>Data Manager<span></span></h3>
+										
+										<h4></h4>
+										
+										<ul>
+											<li>Unidades de Cinta</li>
+											<li> 1 unidad DELLpara cartucho LTO-5</li>
+											<li> 1 unidad HPpara cartucho LTO-4</li>
+											<li> 2 unidades HPpara cartucho LTO-3</li>
+											<li> 1 unidad HPpara cartucho LTO-2</li>
+											<li> 1 unidad HPpara cartucho LTO-1</li>
+											<li> 1 unidad IBM para cartucho 3590 de baja densidad</li>
+											<li> 2 unidades IBM para cartucho 3590 de alta densidad</li>
+											<li> 1 unidad QUANTUM para cartucho 3592 de baja densidad</li>
+											<li> 1 unidad QUANTUM para cartucho 3592 de alta densidad</li>
+											<li> 3 unidades QUALSTAR para cartuchos 3490</li>
+											<li> 3 unidades SUN para cartucho D.L.T 7000</li>
+											<li> 3 unidades SUN para Exabyte de 8mm</li>
+											<li> 2 unidades SUN para Exabyte de 4 mm</li>
+											<li> 1 unidad Qualstar para cintas magnéticas de ½” -9 pistas</li>
+										</ul>
+										<!--p>Geología (Desarrollo y Exploración) • Petrofísica • Geofísica • Estudios especiales Cada uno de estos grupos de trabajo convive además con sus propias especialidades generando y requiriendo información. A su vez se tratará de reflejar, cómo desde las prácticas de DATA MANAGEMENT se puede ayudar a estos sectores a complementarse en lo que al manejo de la información se refiere. Luego de haber desarrollado esta temática se expondrá el proyecto de integración de estos sectores dentro, para finalmente arribar a las conclusiones del modelo implementado XXX.</p-->
+					
+									</li>
+
+										
+							</ul>
+							
+						</div>
+			
+					</div>
+					
+				</div>
+			</div>
+		</div><!--=============== seccion servicios fin ===============-->
+
+		<!--=============== seccion datos ===============-->
+		
+		<div id="facts"  class="sections">
+			<div class="content">
+				<div class="container">
+					<h3 class="sections-head">Nuestra experiencia</h3>
+					<div class="small-separator ws"></div>
+					<ul>
+						<!-- fact 1-->
+						<li class="grid-2">
+							<div class="milestone-counter">
+								<div class="stats animaper">
+									<div class="num" data-content="62" data-num="62">0</div>
+								</div>
+							</div>
+							<h6><i class="fa fa-users fa-2x"></i><span><a class="aclientes" href="#clientes">Clientes</a></span></h6>
+						</li>
+						<!-- fact 2-->  
+						<li class="grid-2">
+							<div class="milestone-counter">
+								<div class="stats animaper">
+									<div class="num" data-content="4" data-num="4">0</div>
+								</div>
+							</div>
+							<h6><i class="fa fa-rocket fa-2x"></i><span><a class="asuramerica" href="#suramerica">Proyectos desarrollados en Sur América</a></span></h6>
+						</li>
+                        <!-- fact 2-->  
+						<li class="grid-2">
+							<div class="milestone-counter">
+								<div class="stats animaper">
+									<div class="num" data-content="213" data-num="42">0</div>
+								</div>
+							</div>
+							<h6><i class="fa fa-laptop fa-2x"></i><span><a class="acanvas" href="#canvas">Proyectos desarrollados en Colombia</a></span></h6>
+						</li>
+					</ul>
+				</div>
+			</div>		
+		</div>  <!--===============  seccion datos fin ===============-->
+
+		<div class="sections" id="clientes">
+			<div class="container">
+				<h3 class="sections-head white">Nuestros Clientes</h3>
+				<div class="small-separator"></div>
+				<ul>
+					<li>Alange energy</li>
+					<li>Amerisur Exploracion Colombia</li>
+					<li>Anadarko Colombia Company</li>
+					<li>Andes Petroleum Ecuador</li>
+					<li>ANH - Agencia Nacional de Hidrocarburo</li>
+					<li>Bp</li>
+					<li>C&C energia</li>
+					<li>Canacol</li>
+					<li>Clean Energy</li>
+					<li>Cepcolsa</li>
+					<li>Chevron Petroleum Company</li>
+					<li>Compañía Operadora Petrocolombia</li>
+					<li>Conequipos</li>
+					<li>DCX</li>
+					<li>Drummond Ltd.</li>
+					<li>Ecopetrol</li>
+					<li>Equion</li>
+					<li>ExploraSur</li>
+					<li>Fonade</li>
+					<li>Geoconsult</li>
+					<li>Geoespectro</li>
+					<li>Geopark</li>
+					<li>Grantierra Energy Colombia Ltd.</li>
+					<li>Green Powert Corporation</li>
+					<li>Hocol S.A.</li>
+					<li>Hupecol Operating Co. LLC</li>
+					<li>Instituto Colombiano de Petróleos - ICP</li>
+					<li>InterOil Colombia</li>
+					<li>Lewis Energy Colombia Inc.</li>
+					<li>Mansaroval Energy Colombia Ltd.</li>
+					<li>Maurel & Prom Colombia B.V.</li>
+					<li>Montecz S.A.</li>
+					<li>NCT Energy Group C.A.</li>
+					<li>New Granada Energy Corporation</li>
+					<li>New Horizon Exploration Inc.</li>
+					<li>Nexen Petroleum</li>
+					<li>Occidental de Colombia, LLC</li>
+					<li>OGX Petróleo E Gas Ltda.</li>
+					<li>Omega Energy</li>
+					<li>Operaciones Petroleras Andinas S.A.A</li>
+					<li>P1 Energy Delta Corp.</li>
+					<li>Pacific Rubiales Energy</li>
+					<li>Pan Andean Resources</li>
+					<li>Parex Resources</li>
+					<li>Paz del Rio</li>
+					<li>Perenco</li>
+					<li>Petroamerica International</li>
+					<li>Petrobras</li>
+					<li>Petrolífera Petroleum</li>
+					<li>Petrominerales</li>
+					<li>Petromont</li>
+					<li>Petronorte</li>
+					<li>Petronova</li>
+					<li>Petrosantander</li>
+					<li>Repsol</li>
+					<li>Shell</li>
+					<li>Sismopetrol</li>
+					<li>Solana</li>
+					<li>Talisman</li>
+					<li>Trayectoria Oil & Gas</li>
+					<li>Turkish Petroleum</li>
+					<li>Vetra</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="sections" id="suramerica">
+			<div class="container">
+				<h3 class="sections-head white">Proyectos desarrollados en Sur América</h3>
+				<div class="small-separator"></div>
+                <table class="stylus">
+                    <!--thead>
+                        <tr>
+                            <th>EXPERIENCIA No.</th>
+                            <th>FECHA DE INICIO</th>
+                            <th>FECHA FINAL</th>
+                            <th>EMPRESA</th>
+                            <th>ACTIVIDAD</th>
+                            <th>NOMBRE PROYECTO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Enero 2009</td>
+                            <td>Julio 2009</td>
+                            <td>Petronorte</td>
+                            <td>PSTM con inversión acústica</td>
+                            <td>Los Ángeles 3D</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Febrero 2009</td>
+                            <td>Mayo 2009</td>
+                            <td>Ecopetrol</td>
+                            <td>Migración preapilado en tiempo PSTM y en profundidad PSDM</td>
+                            <td>Quebrada larga 2D 2007 y Opon 2D 95</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Marzo 2009</td>
+                            <td>Septiembre 2009</td>
+                            <td>Petronorte</td>
+                            <td>Migración preapilado en tiempo PSTM y en profundidad PSDM</td>
+                            <td>La Gaitana 2D 2008</td>
+                        </tr-->
+                        <thead>
+                        <tr>
+                            <th>EXPERIENCIA No.</th>
+                            <th>PROYECTO</th>
+                            <th>PAÍS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Tarapoa West 3D</td>
+                            <td>Ecuador</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Isabel 3D</td>
+                            <td>Ecuador</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Cuyabeno 3D</td>
+                            <td>Ecuador</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Bloque Lima, Cuenca Paraná</td>
+                            <td>Paraguay</td>
+                        </tr>
+                    </tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+		<div id="canvas" class="sections">
+			<div class="caption grid-2">
+				<div class="customNavigation">
+					<a class="btn close transition" href="#"></a>
+				</div>
+				<div id="a">
+		            <h2>CATATUMBO</h2>
+		            <ul>
+						<li>Carbonera 2D-2008</li>
+						<li>Carbonera 3D-2008</li>
+						<li>Cerrito</li>
+						<li>González 2D-2008</li>
+						<li>Gonzalez 3D</li>
+						<li>Mucurera-79</li>
+						<li>Petrolea Profundo 3D</li>
+						<li>Petrólea Somero 3D</li>
+						<li>Tibú</li>
+		            </ul>
+		        </div>
+		        <div id="b">
+		            <h2>SAN JACINTO</h2>
+		            <ul>
+		                <li>Alcatraz</li>
+						<li>Atlantico RC7-3D</li>
+						<li>El Bongo</li>
+						<li>El Hatillo 2D</li>
+						<li>El Piñal 2D</li>
+						<li>Flechas 2D</li>
+						<li>Línea sísmica</li>
+						<li>transandina</li>
+						<li>ANH-TR-2006-4A</li>
+						<li>Montes de Maria 2D</li>
+						<li>2012</li>
+						<li>Perdices NW 2D-2008</li>
+						<li>SSJN7 2D 2011</li>
+		            </ul>
+		        </div>
+		        <div id="c">
+		            <h2>VIM</h2>
+		            <ul>
+		                <li>Cicuco 3D 2011</li>
+						<li>Cicuco 2D 2008</li>
+						<li>Línea sísmica transandina</li>
+						<li>ANH-TR-2006-4A</li>
+						<li>Siera Nevada</li>
+						<li>Perdices 2D 2006</li>
+						<li>Tea Ligia</li>
+						<li>Chimicuica 3D</li>
+						<li>La Maye</li>
+		            </ul>
+		        </div>
+		        <div id="d">
+		            <h2>GUAJIRA</h2>
+		            <ul>
+						<li>Maicao-69</li>
+						<li>Maicao-90</li>
+						<li>Majayura-72</li>
+						<li>Sorpresa2D-2002</li>
+		            </ul>
+		        </div>
+		        <div id="e">
+		            <h2>CESAR-RANCHERÍA</h2> 
+		            <p>Las Nieves-2D-2002</p>
+		        </div>
+		        <div id="f">
+		            <h2>VALLE DEL CAUCA</h2>
+		            <p>Cauca Patia</p>
+		        </div>
+		        <div id="g">
+		            <h2>VSM</h2>
+		            <ul>
+		                <li>Abanico</li>
+						<li>Alpujarra-92</li>
+						<li>Antares 2D</li>
+						<li>Antares 3D 2009</li>
+						<li>Baraya</li>
+						<li>Buganvilles 2D</li>
+						<li>Chipalo</li>
+						<li>Comadre</li>
+						<li>El Pensil 2D-2002</li>
+						<li>El Queso-2003/2005</li>
+						<li>Gaitanas 97</li>
+						<li>Huila 2D</li>
+						<li>Huracán</li>
+						<li>Maito</li>
+						<li>Pechuí</li>
+						<li>Río Aipe-2004</li>
+						<li>Río Doima 2D-2004</li>
+						<li>Río Saldaña 3D</li>
+						<li>Río Saldaña 2D</li>
+						<li>Rosales 2D-2005</li>
+						<li>Ventarrón</li>
+						<li>Villarrica-2D-2000</li>
+		            </ul>
+		        </div>
+                <div id="h">
+		            <h2>VMM</h2>
+		            <ul>
+		                <li>Antorcha 2D-2008</li>
+						<li>Armero 3D</li>
+						<li>Cantagallo 2D-2008</li>
+						<li>Cristalina-Playón 2D-08/2010</li>
+						<li>Demares-2D</li>
+						<li>Demares Este 2D 2008</li>
+						<li>Fortuna2D-2004</li>
+						<li>Gaitas-3D</li>
+						<li>Las Cuevas 3D</li>
+						<li>La India</li>
+						<li>La Paloma 3D 2008</li>
+						<li>La Palma 2D</li>
+						<li>Línea sísmica transandina</li>
+						<li>ANH-TR-2006-4A</li>
+						<li>Lisama-2004</li>
+						<li>Llanito 3DLos Ángeles 3D</li>
+						<li>Midas 2D-2007</li>
+						<li>Midas Norte3D-2008</li>
+						<li>Midas Sur 3D-2008</li>
+						<li>Mugrosa</li>
+						<li>Nare-B-2000</li>
+						<li>Nare-Cocorná</li>
+						<li>Neftis 2D 2010</li>
+						<li>Palma 2D 05/07-10</li>
+						<li>Paloma 2D 2007</li>
+						<li>Paradigma</li>
+						<li>Paraíso2D-05/07</li>
+						<li>Quebrada Larga-03/08</li>
+						<li>Río Guayabito 2D</li>
+						<li>Santa Lucia 3D</li>
+						<li>Tingua 2D-2008</li>
+						<li>Tisquirama</li>
+						<li>Turpial</li>
+						<li>Velp 3D-2008</li>
+						<li>Velásquez 3D 04/06</li>
+						<li>VMM-35</li>
+						<li>Bloque VMM-32</li>
+		            </ul>
+		        </div>
+		        <div id="i">
+		            <h2>CORDILLERA ORIENTAL</h2>
+		            <ul>
+						<li>Buenavista 2D-2005</li>
+						<li>Buenavista 2D-2006</li>
+						<li>Cordillera</li>
+						<li>Granadillas-Jordán</li>
+						<li>Laguna 94-95(Soapaga)</li>
+						<li>El Sacro-Alto Comaita</li>
+						<li>Sogamoso 3D 2010</li>
+		            </ul>
+		        </div>
+		        <div id="j">
+		            <h2>LLANOS</h2>
+		            <ul>
+						<li>Apiay-3D</li>
+						<li>Ariari-81</li>
+						<li>Arimena 2D</li>
+						<li>Cabiona-3D</li>
+						<li>Cabrestero</li>
+						<li>Campo Rico-A-2003</li>
+						<li>Campo Rico-A-2D-2002</li>
+						<li>Cara Cara Sur 3D-2005</li>
+						<li>Carupaná Casa Grande-2001</li>
+						<li>Cauchos Norte 3D</li>
+						<li>Cerrero 2D-2008</li>
+						<li>Cerrero 3D-2010</li>
+						<li>Chicuaco-2005</li>
+						<li>Chicuaco 3D</li>
+						<li>Chaparrito Las Avejas 3D 2011</li>
+						<li>Corocora 2D</li>
+						<li>Colonias 3D 2008</li>
+						<li>Bloque CP-09 2D</li>
+						<li>Cravo sur 3D 2011</li>
+						<li>Cravo Viejo-2005</li>
+						<li>Cuerva East 3D</li>
+						<li>CuervaWest 3D</li>
+						<li>La Cuerva South East 3D</li>
+						<li>Dorotea</li>
+						<li>El Triunfo 3D-2008</li>
+						<li>Entrerrios Garibay-2006</li>
+						<li>Garibay-3D-2009</li>
+						<li>Garzas 3d 2010</li>
+						<li>Gaviotas 2D-2004</li>
+						<li>Gaviotas 2D-2006</li>
+						<li>Guachiría Norte-2006</li>
+						<li>Guachiría Sur 2D-2006</li>
+						<li>Jacaranda 2D-2007</li>
+						<li>Jagueyes 3D 2011</li>
+						<li>La Punta 3D 2011</li>
+						<li>Llanos 6 2D</li>
+						<li>Llanos 5 3D</li>
+						<li>Llanos 8 2D</li>
+						<li>Llanos 17 sur 3D</li>
+						<li>Llanos 17 Norte 3D</li>
+						<li>Llanos 22 3D</li>
+						<li>Lanos 27 3D</li>
+						<li>Llanos 26 3D</li>
+						<li>Llanos 32 3D</li>
+						<li>Llanos 33 3D</li>
+						<li>Llanos 34 3D</li>
+						<li>Llanos 40 3d 2011</li>
+						<li>Llanos 62 3D 2011</li>
+						<li>Llanos 66 3D</li>
+						<li>Llanos 45 E 3D</li>
+						<li>Bloque Llanos 53 2D</li>
+						<li>Bloque LLA-70</li>
+						<li>Corocora A2 3D</li>
+						<li>Melúa Oriental-91</li>
+						<li>Menégua 2D2007</li>
+						<li>Menégua-2004</li>
+						<li>Merecure 3D N 2009</li>
+						<li>Merecure 3D Sur 2012</li>
+						<li>Morichal 3D 2011</li>
+						<li>Merge Corocora A2 D</li>
+						<li>LLanos 45 E 3D</li>
+						<li>Moriche 2D-2001</li>
+						<li>Moriche 3D-2007</li>
+						<li>Morichito 3D Norte</li>
+						<li>Onix 3D 2011</li>
+						<li>Palmitas 3D 2011</li>
+						<li>Puerto López Oeste</li>
+						<li>Puerto López-88</li>
+						<li>Puerto López-89</li>
+						<li>Puerto López-90</li>
+						<li>Rancho Hermoso 2D</li>
+						<li>Rancho Quemado-3D</li>
+						<li>Refugio-73</li>
+						<li>Río Cravo</li>
+						<li>Río Melúa-89</li>
+						<li>San Miguel 2D-2002</li>
+						<li>Sirenas</li>
+						<li>Tiple 3D</li>
+						<li>Tapir 3D</li>
+						<li>Tocaria la Totuma</li>
+						<li>3D 2011</li>
+						<li>Triunfo-3D</li>
+						<li>Uribe-70</li>
+						<li>Uribe-71</li>
+						<li>Yamú-2D 2007</li>
+						<li>Yamú 2004</li>
+						<li>Max 3D</li>
+						<li>Oropendola 3D</li>
+						<li>Metge La Punta 3D</li>
+		            </ul>
+		        </div>
+                <div id="k">
+		            <h2>CAGUAN-PUTUMAYO</h2>
+		            <ul>
+						<li>Alea1848-A</li>
+						<li>Alea1947-C</li>
+						<li>Bloque4</li>
+						<li>Coatí</li>
+						<li>Cohembi-3D</li>
+						<li>Las Cuevas 3D</li>
+						<li>Marantá2D</li>
+						<li>Mónaco2D</li>
+						<li>Picachos 2D</li>
+						<li>Platanillo3D-3C</li>
+						<li>Putumayo Sur Oriente</li>
+						<li>Serranía-2D</li>
+						<li>Topoyaco 2D-2008</li>
+						<li>Tea Monaco 2D</li>
+						<li>Yarí-73</li>
+						<li>Canelo 3D Norte</li>
+						<li>Canelo 3D N Sur</li>
+						<li>Put-4 Norte 2D</li>
+						<li>Put-8 3D</li>
+						<li>Bloque Put-12</li>
+						<li>Bloque Put-25</li>
+					</ul>
+				</div>
+		        <div id="l">
+		            <h2>LOS CAYOS</h2>
+		            <ul>
+		                <li>Cayos Norte -1977</li>
+						<li>Cayos Sur - 1977</li>
+		            </ul>
+		        </div>
+			</div>
+
+			<div id="paper" class="grid-12"></div>
+		</div>
+
+		<!--=============== seccion portafolio ===============-->
+
+		<div id="portfolio" class="sections ws">
+		
+			<div class="content">
+				<div class="container">
+					<h2>Tecnología</h2>
+					<div class="small-separator"></div>
+				</div>
+					
+				<!-- portafolio filtros -->
+
+				<div class="clear cent" >
+					<p>En nuestro centro de proceso contamos con un Data Center que nos brinda una capacidad de cómputo de  de 3.0723 Terafloap, y nos permite realizar el procesamiento de 400 millones de trazas mensuales.</p>
+				</div>
+						
+			</div>
+
+		</div>	<!--=============== seccion portafolio fin ===============-->
+		
+	<!--=============== seccion contacto ===============-->
+
+		<div class="sections" id="contact">
+	        <div class="clearfix">
+	            <div class="middle square red"></div>
+	            <div class="container">
+	                <h2 class="main">Contacto</h2>
+	                <div class="grid-3">
+	                    <div class="form">
+	                    	<div id="contacto">
+	                        <form method="post" id="contact_form" action="#" onsubmit="return validarm();">
+	                            <input type="text" placeholder="Nombre" name="name" id="fname" class="medium required" />
+	                            <input type="email" placeholder="Email" name="email" id="femail" class="medium required" />
+	                            <textarea name="message" id="ftext" class="giant required" placeholder="Mensaje"></textarea>
+	                            <div class="form-aligned-elements clearfix">
+	                            	<div id="code_1"></div>
+	                            	<label class="container"><span style="color: white;">&nbsp;&nbsp;Acepto Términos y Condiciones<br />(Información Legal)</span>
+									  <input type="checkbox" name="term" id="term" class="medium required" required>
+									  <span class="checkmark"></span>
+									</label>
+									<br>
+	                                <button class="submit_btn">Enviar mensaje</button>
+	                                
+	                            </div>
+	                        </form>
+	                    	</div>
+	                	</div>
+	                </div>
+	                <div class="grid-3">
+	                    <a href="https://www.google.es/maps/place/Carrera+18+%23+79-47,+Bogot%C3%A1,+Cundinamarca,+Colombia/@4.6666477,-74.0593396,17z/data=!4m2!3m1!1s0x8e3f9af5feeeb991:0x7597db1448e5f541" class="widget getdirections hideonmobile" target="_blank">
+	                        <i class="icon-pushpin mr10"></i> <span>Mapa ampliado</span>
+	                    </a>
+	                    
+	                    <div class="widget withbgr">
+	                        <div class="top">
+	                            +57 1 610 2844
+	                        </div>
+	                        <div class="bottom">
+	                            Llámenos para conocer más acerca de nuestros servicios.
+	                        </div>
+	                    </div>
+	                    <div class="widget">
+	                        <h3 class="dir">Dirección:</h3>
+	                        <ul class="vermenu">
+	                            <li>Carrera 18 No. 79 -  47</li>
+	                            <li>Piso 4</li>
+	                            <li>Bogotá, D.C.</li>
+	                            <li>COLOMBIA</li>
+
+	                        </ul>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div><!--=============== seccion contacto fin ===============-->
+
+	    <div id="map_canvas" class="sections" ></div>
+
+	    <div id="legal" class="sections">
+
+			<br/><br/><br/>
+		
+			<div class="content">
+			
+				<div class="quote-icon"><i class="fa fa-legal"></i></div>
+
+				<div class="container">
+					<br/><br/><br/>
+					<h2>Informaci&oacute;n Legal</h2>
+					<div class="small-separator"></div>
+					<br/><br/><br/>
+				</div>
+
+				<div class="container">  
+				  <div class="row">
+				    <div class="service_box animaper">
+				      <a class="animbox2" href="#section1" style="padding: 10px; margin: 4px;">Aviso<br>de<br>Privacidad</a>
+				    </div>
+				    <div class="service_box animaper" style="width: 242px;">
+				      <a class="animbox2" href="#section2" style="width: 240px; padding: 10px; margin: 4px;">Política para La Protecci&oacute;n y Tratamiento de Datos Personales</a>
+				    </div>
+				    <div class="service_box animaper" style="width: 200px;">
+				      <a class="animbox2" href="#section3" style="width: 198px; padding: 10px; margin: 4px;">Aviso de Regularizaci&oacute;n de Bases de Datos</a>
+				    </div>
+				  </div>
+				</div>
+
+				<div class="container">
+					<h2>&nbsp;</h2>
+				</div>
+
+			</div>
+
+			<div class="content">
+
+				<div id="section1" class="container-full" style="text-align: left;">
+				  <h1 class="bigtext" style="text-align: center;">Aviso de Privacidad</h1>
+				  <div class="container" style="text-align: center;">
+					<div class="small-separator"></div>
+				  </div>
+				  <p><b>INFORPETROL S.A.</b> identificada con Nit. 800.234.304-0 con domicilio principal en la ciudad de Bogota, Carrera 18 # 79 – 47 Piso 4. teléfono de contacto 6102844, será el responsable del tratamiento de sus datos personales.</p>
+				  <p>La compañía en el desarrollo de su objeto social podrá recolectar, usar, almacenar, transmitir, transferir y tratar sus datos personales, para los siguientes fines:</p>
+				  <div class="legal">
+	            	<ul class="int">
+	            		<li>El desarrollo de los procesos administrativos de creación, contratación y gestión de clientes, proveedores y contratistas y en cumplimiento de normas aplicables, incluyendo, pero sin limitarse a las tributarias y comerciales.</li>
+	            		<li>Pago de obligaciones contractuales relacionadas con contratistas y proveedores.</li>
+	            		<li>El desarrollo de los procesos propios de la gestión de clientes.</li>
+	            		<li>Ejecución de contratos suscritos con cualquiera tercero.</li>
+	            		<li>El envío de información relacionada con propuestas, cotizaciones, actualización de datos, noticias, servicios ofrecidos por INFOPETROL SA referente al vínculo comercial contraído.</li>
+						<li>Para ejecutar todo lo referente en virtud de la relación contractual, procesos de afiliación, pago de nóminas, liquidación de aportes a seguridad social, pago de parafiscales, comunicación interna, programas de bienestar, programas de inducción, reinducción y formación, integración al SG - SST y todas aquellas informaciones y actividades en las cuales se relacionan o vinculan los empleados y sus familiares.</li>
+						<li>Para Realizar todas las gestiones y/o trámites internos de la compañía para llevar a cabo los procesos de selección.</li>
+						<li>En atención a organismos de control fiscal, legal o comercial que requieran información contenida en la base de datos de <b>INFORPETROL S.A.</b>.</li>
+						<li>Manejar y administrar bases de datos.</li>
+						<li>En respuesta a contravenciones de tipo jurídico.</li>
+						<li>En cumplimiento de mandatos administrativos, judiciales o legales.</li>
+						<li>Para la emisión de las certificaciones relativas a la relación del titular del dato con la compañía.</li>
+						<li>Para eventualmente contactar, vía telefónica, correo electrónico, o por cualquier otro medio, a personas naturales con quienes tiene o ha tenido relación, tales como, sin que la enumeración signifique limitación, trabajadores y familiares de éstos, proveedores ycontratistas, clientes, aspirantes en procesos de selección, y demás partes interesadas para las finalidades antes mencionadas.</li>
+						<li>Cualquier otra finalidad que resulte en el desarrollo del contrato o la relación entre el titular e <b>INFORPETROL S.A.</b>.</li>
+						<li>Para el desarrollo de procesos administrativos propios de su actividad misional, por lo cual, cuando así lo requiera, podrá contratar para que los servicios sean prestados por terceros, en estos casos la información se trasladará con las medidas de seguridad necesarias que permitan salvaguardar la intimidad del titular y la correcta prestación del servicio, y el cumplimiento de los demás deberes legales y constitucionales.</li>
+	            	</ul>
+	            	<p>La política para la protección y tratamiento de datos personales, así como los cambios sustanciales que se produzcan en esta pueden ser consultados en las instalaciones de la compañía o ser solicitada vía correo electrónico.</p>
+		            <p>El titular puede ejercitar los derechos de acceso, corrección, supresión, revocación o reclamo por infracción sobre sus datos mediante un escrito dirigido al Área Administrativa, radicado en nuestras oficinas o mediante correo electrónico a: gerencia@inforpetrol.com.co</p>
+				  </div>
+
+				</div>
+				<div class="container">
+					<br><br><br><br><br>
+				</div>
+				<div id="section2" class="container-full" style="text-align: left;">
+				  <h1 class="bigtext" style="text-align: center;">Política para La Protecci&oacute;n y Tratamiento de Datos Personales</h1>
+				  <div class="container" style="text-align: center;">
+					<div class="small-separator"></div>
+				  </div>
+				  <p><b>INFORPETROL S.A.</b> identificada con Nit.800.234.304-0 , con domicilio principal en la ciudad de Bogota, Calle 18 # 79 – 47 Piso 4, telefono 6102844, en virtud de su condición de responsable de tratamiento de datos personales obtenidos en el marco de su fin misional, está comprometida con la protección y tratamiento de los mismos, en procura de garantizar la protección de los derechos fundamentales de sus titulares, atendiendo la legislación vigente y su direccionamiento estratégico.</p>
+				  <p><b>INFORPETROL S.A.</b> encaminará todos sus esfuerzos a salvaguardar las garantías constitucionales consagradas en la Constitución Política Colombiana, referentes al derecho que tienen todas las personas a su intimidad familiar y personal, y así mismo a la posibilidad de conocer, actualizar y rectificar las informaciones que se hayan recogido sobre ellas en las distintas bases de datos de entidades públicas y privadas, por ello ha establecido la presente política la cual tiene soporte en los siguientes principios:</p>
+				  <div class="legal">
+	            	<ul class="int">
+	            		<li><b>LEGALIDAD:</b> El tratamiento de datos es una actividad reglada que debe sujetarse a lo establecido en la ley y las demás disposiciones que la desarrollen.</li>
+	            		<li><b>FINALIDAD:</b> El tratamiento debe obedecer a una finalidad legítima de acuerdo con la Constitución y la Ley, la cual debe ser informada al titular. En lo correspondiente a la recolección de datos personales, <b>INFORPETROL S.A.</b> se limitará a aquellos datos que sean pertinentes y adecuados unicamente para el fin misional de la empresa.</li>
+	            		<li><b>LIBERTAD:</b> El tratamiento solo puede ejercerse con el consentimiento previo, expreso, e informado del titular. Los datos personales no podrán ser obtenidos o divulgados sin previa autorización, o en ausencia de mandato legal o judicial que releve el consentimiento.</li>
+	            		<li><b>VERACIDAD O CALIDAD:</b> La información sujeta a tratamiento debe ser veraz, completa, exacta, actualizada, comprobable y comprensible. Se prohíbe el tratamiento de datos parciales, incompletos, fraccionados o que induzcan a error.</li>
+	            		<li><b>TRANSPARENCIA:</b> En el tratamiento debe garantizarse el derecho del titular a obtener del responsable del tratamiento o del encargado del tratamiento, en cualquier momento y sin restricciones, información acerca de la existencia de datos que le conciernan.</li>
+	            		<li><b>ACCESO Y CIRCULACIÓN RESTRINGIDA:</b> El tratamiento se sujeta a los límites que se derivan de la naturaleza de los datos personales, de las disposiciones de la ley y la Constitución. En este sentido, el tratamiento sólo podrá hacerse por personas autorizadas por el titular y/o por las personas previstas en la ley. Los datos personales, salvo la información pública, no podrán estar disponibles en internet u otros medios de divulgación o comunicación masiva, salvo que el acceso sea técnicamente controlable para brindar un conocimiento restringido sólo a los titulares o terceros autorizados conforme a la ley.</li>
+	            		<li><b>SEGURIDAD:</b> La información sujeta a tratamiento, se manejará con las medidas técnicas, humanas y administrativas que sean necesarias para otorgar seguridad a los registros, evitando su adulteración, pérdida, consulta, uso o acceso no autorizado o fraudulento</li>
+	            		<li><b>CONFIDENCIALIDAD:</b> <b>INFORPETROL S.A.</b> asegurará la reserva de la información, inclusive después de finalizada su relación con alguna de las labores que comprende eltratamiento, pudiendo sólo realizar suministro o comunicación de datos personales cuando ello corresponda al desarrollo de las actividades autorizadas en la ley.</li>
+	            	</ul>
+	              </div>
+	              <p>Para facilitar la comprensión de la presente política para el tratamiento de datos personales, se trascriben las siguientes definiciones:</p>
+				  <div class="legal">
+	            	<ol class="int">
+	            		<li><b>Autorización:</b> Consentimiento previo, expreso e informado del titular del dato personal para llevar a cabo el tratamiento.</li>
+	            		<li><b>Base de Datos:</b> conjunto organizado de datos personales que sean objeto de tratamiento.</li>
+	            		<li><b>Consulta:</b> Solicitud del titular del dato o las personas autorizadas por éste o por la ley para conocer la información que reposa sobre ella en bases de datos o archivos.</li>
+	            		<li><b>Dato Personal:</b> Cualquier información vinculada o que pueda asociarse a una o varias personas naturales determinadas o determinables.</li>
+	            		<li><b>Dato Público:</b> Es el dato que no sea semiprivado, privado o sensible. Por su naturaleza, los datos públicos pueden estar contenidos, entre otros, en registros públicos, documentos públicos, gacetas y boletines oficiales y sentencias judiciales debidamente ejecutoriadas que no estén sometidas a reserva.</li>
+	            		<li><b>Dato Privado:</b> Es el dato que por su naturaleza íntima o reservada sólo es relevante para la persona titular del dato. Ej. documentos privados, información extraída a partir de la inspección del domicilio, libros del comerciante.</li>
+	            		<li><b>Dato semiprivado:</b> Es semiprivado el dato que no tiene naturaleza íntima, reservada, ni pública y cuyo conocimiento o divulgación puede interesar no sólo a su titular sino a cierto sector o grupo de personas o a la sociedad en general, entre otros, el dato referente al cumplimiento e incumplimiento de las obligaciones financieras o los datos relativos a las relaciones con las entidades de la seguridad social.</li>
+	            		<li><b>Encargado del Tratamiento:</b> Persona natural o jurídica, pública o privada, que por sí misma o en asocio con otros, realiza el tratamiento de datos personales por cuenta del responsable del tratamiento.</li>
+	            		<li><b>Reclamo:</b> Solicitud del titular del dato o la persona autorizada por éste o por la ley para corregir, actualizar o suprimir sus datos personales.</li>
+	            		<li><b>Responsable del tratamiento:</b> Persona natural o jurídica, pública o privada, que por sí misma o en asocio con otros, decide sobre la base de datos y/o el tratamiento de los datos.</li>
+	            		<li><b>Titular del dato:</b> Persona natural cuyos datos personales sean objeto de Tratamiento.</li>
+	            		<li><b>Tratamiento:</b> Cualquier operación o conjunto de operaciones sobre Datos Personales, tales como la recolección, almacenamiento, uso, circulación o supresión.</li>
+	            	</ol>
+	              </div>
+	              <p><b>INFORPETROL S.A.</b> garantizará que en la recolección, uso, almacenamiento, circulación, transmision, actualización, supresión y/o cualquier otro tipo de tratamiento de datos personales, se realizará de manera consentida y tienen como único fin:</p>
+				  <div class="legal">
+	            	<ul class="int">
+	            		<li>El desarrollo de los procesos administrativos de creacion, contratacion y gestion de clientes, proveedores y contratistas y en cumplimiento de normas aplicables, incluyendo, pero sin limitarse a las tributarias y comerciales.</li>
+	            		<li>Pago de obligaciones contractuales relacionadas con contratistas y proveedores.</li>
+	            		<li>El desarrollo de los procesos propios de la gestion de clientes.</li>
+	            		<li>Ejecución de contratos suscritos con cualquiera tercero.</li>
+	            		<li>El envío de información relacionada con propuestas, cotizaciones, actualización de datos, noticias, servicios ofrecidos por INFOPETROL SA referente al vínculo comercial contraído.</li>
+	            		<li>Para ejecutar todo lo referente en virtud de la relación contractual, procesos de afiliación, pago de nóminas, liquidación de aportes a seguridad social, pago de parafiscales, comunicación interna, programas de bienestar, programas de inducción, reinducción y formación, integración al SG - SST y todas aquellas informaciones y actividades en las cuales se relacionan o vinculan los empleados y sus familiares.</li>
+	            		<li>Para Realizar todas las gestiones y/o trámites internos de la compañía para llevar a cabo los procesos de selección.</li>
+	            		<li>En atención a organismos de control fiscal, legal o comercial que requieran información contenida en la base de datos de <b>INFORPETROL S.A.</b>.</li>
+	            		<li>Manejar y administrar bases de datos.</li>
+	            		<li>En respuesta a contravenciones de tipo juridico.</li>
+	            		<li>En cumplimiento de mandatos administrativos, judiciales o legales. Para la emisión de las certificaciones relativas a la relación del titular del dato con la compañía.</li>
+	            		<li>Para eventualmente contactar, vía telefónica, correo electrónico, o por cualquier otro medio, a personas naturales con quienes tiene o ha tenido relación, tales como, sin que la enumeración signifique limitación, trabajadores y familiares de éstos, proveedores y contratistas, arrendatarios, aspirantes en procesos de selección, y demás partes interesadas para las finalidades antes mencionadas.</li>
+	            		<li>Cualquier otra finalidad que resulte en el desarrollo del contrato o la relación entre el titular e <b>INFORPETROL S.A.</b>.</li>
+	            		<li>Para el desarrollo de procesos administrativos propios de su actividad misional, por lo cual, cuando asi lo requiera, podrá contratar para que los servicios sean prestados por terceros, en estos casos la información se trasladará con las medidas de seguridad necesarias que permitan salvaguardar la intimidad del titular y la correcta prestación del servicio, y el cumplimiento de los demás deberes legales y constitucionales.</li>
+	            	</ul>
+	              </div>
+	              <p>Por otra parte <b>INFORPETROL S.A.</b> reconoce que el titular de los datos puede hacer uso de su facultad legal para:</p>
+				  <div class="legal">
+	            	<ul class="int">
+	            		<li>Conocer en cualquier tiempo, la información que sobre su persona esté depositada en nuestras bases de datos.</li>
+	            		<li>Solicitar la rectificación y actualización de sus datos de las bases de datos sujetas a tratamiento.</li>
+	            		<li>Revocar la autorización de tratamiento de aquellos datos contenidos en las bases de datos a cargo de la compañía.</li>
+	            		<li>Ser informado de la solicitud de terceros, distinto a autoridades judiciales o administrativas, de obtener sus datos y a consentir, mediante autorización expresa, o negar la entrega de los mismos.</li>
+	            		<li>Ejercer ante las autoridades competentes las acciones derivadas del incumplimiento de la política de tratamiento aquí descrita.</li>
+	            		<li>Los demás que le sean otorgados por la Constitución y la ley.</li>
+	            	</ul>
+	              </div>
+	              <p>Para ejercer el derecho que los titulares de la información tienen a conocer, actualizar, rectificar y suprimir el dato y revocar la autorización podrán enviar una comunicación a la dirección de correo electrónico: gerencia@inforpetrol.com.co o presentar solicitud escrita en el domicilio principal.</p>
+	              <p>La compañía dará respuesta al titular que realiza la petición dentro de los términos establecidos por la Ley 1581 de 2012 para el caso de consultas y reclamos, respectivamente; para el efecto, la solicitud debe contener todos los datos necesarios para garantizar la oportuna y efectiva respuesta. Además, deberá contener la descripción clara y precisa de los datos personales respecto de los cuales el titular busca ejercer alguno de los derechos. Toda solicitud, para ser tramitada, debe presentarse por el titular de los datos o por su representante legal; por lo tanto, <b>INFORPETROL S.A.</b> se reserva el derecho de verificar la identidad del peticionario mediante cualquier medio.</p>
+	              <p>La consulta será atendida en un término máximo de (10) días hábiles contados a partir de la fecha del recibo de la misma. Cuando no fuere posible atender la consulta de dicho término, se informará al interesado, expresando los motivos de la demora y señalando la fecha en que se atenderá su consulta, la cual en ningún caso podrá superar los (5) días hábiles siguientes al vencimiento del primer término.</p>
+	              <p>Las solicitudes de actualización, corrección, rectificación o supresión de los datos serán contestadas dentro de los quince (15) días hábiles siguientes, contados a partir del día siguiente a la fecha de su recibo. Cuando no fuere posible atenderlo dentro de dicho término se informará al interesado antes del vencimiento del referido plazo los motivos de la demora y la fecha en que se atenderá su reclamo, la cual en ningún caso podrá superar los ocho (8) días hábiles siguientes al vencimiento del primer término.</p>
+	              <p>En las solicitudes de rectificación y actualización de datos personales el titular debe indicar las correcciones a realizar y aportar la documentación que avale su petición.</p>
+	              <p>La supresión de datos personales puede implicar la eliminación total o parcial de la información de acuerdo con lo solicitado por el titular en los registros, archivos, bases de datos o tratamientos realizados por INFOPETROL SA.</p>
+	              <p>Es importante tener en cuenta que el derecho de cancelación no es absoluto y el responsable puede negar el ejercicio de este cuando:</p>
+				  <div class="legal">
+	            	<ul class="int">
+	            		<li>El titular tenga un deber legal o contractual de permanecer en la base de datos.</li>
+	            		<li>La eliminación de datos obstaculice actuaciones judiciales o administrativas vinculadas a obligaciones fiscales, la investigación y persecución de delitos o la actualización de sanciones administrativas.</li>
+	            		<li>Los datos sean necesarios para realizar una acción en función del interés público, o para cumplir con una obligación legalmente adquirida por el titular.</li>
+	            	</ul>
+	              </div>
+	              <p>Los titulares de los datos personales pueden revocar el consentimiento al tratamiento de sus datos personales en cualquier momento, siempre y cuando no lo impida una disposición legal o contractual. Se deberá tener en cuenta que existen dos modalidades en las que la revocación del consentimiento puede darse. La primera, puede ser sobre la totalidad de las finalidades consentidas, esto es, que <b>INFORPETROL S.A.</b> deba dejar de tratar por completo los datos del titular; la segunda, puede ocurrir sobre tipos de tratamiento determinados, como por ejemplo para fines publicitarios o de estudios de mercado. Con la segunda modalidad, esto es, la revocación parcial del consentimiento, se mantienen a salvo otros fines del tratamiento que el responsable, de conformidad con la autorización otorgada puede llevar a cabo y con los que el titular está de acuerdo.</p>
+	              <p>Cualquier cambio sustancial en esta política de tratamiento, en los términos descritos en el artículo 5o del Decreto 1377 de 2013, deberá ser comunicado oportunamente a los titulares de los datos personales de una manera eficiente, antes de implementar las nuevas políticas.</p>
+	              <p>La presente políticas rige a partir del 1 de junio de 2018.</p>
+	              <p>Por regla general, el término de las autorizaciones sobre el uso de los datos personales se entiende vigente durante el ejercicio del objeto social de <b>INFORPETROL S.A.</b>.</p>
+				</div>
+				<div class="container">
+					<br><br><br><br><br>
+				</div>
+				<div id="section3" class="container-full" style="text-align: left;">
+				  <h1 class="bigtext" style="text-align: center;">Aviso de Regularizaci&oacute;n de Bases de Datos</h1>
+				  <div class="container" style="text-align: center;">
+					<div class="small-separator"></div>
+				  </div>
+				  <p>De acuerdo con la Ley Estatutaria 1581 de 2012 de Protección de Datos y el Decreto 1377 de 2013, informamos que los datos proporcionados con anterioridad a la entrada en vigor de la referida norma están incorporados en una base de datos bajo Responsabilidad de la empresa <b>INFORPETROL S.A.</b> , De igual modo, se informa que la base de datos en la que se encuentran sus datos personales es tratada bajo las finalidades determinadas en la Política Para La Protección y Tratamiento de Datos Personales de la compañía y bajo estrictas medidas de seguridad.</p>
+				  <p>Al efecto, indicamos que dispone de un plazo de treinta (30) días para manifestar por escrito su negativa al tratamiento de los datos personales que indica nuestra política para la protección de datos personales a la cual puede acceder a solicitud de la parte interesada en las instalaciones de la compañía o vía correo electrónico gerencia@inforpetrol.com.co. Sí transcurrido dicho termino no hubiese manifestado su disconformidad, se entenderá que consiente tácitamente el tratamiento de sus datos personales.</p>
+				  <p>Los titulares podrán ejercer los derechos de acceso, corrección, supresión, revocación o reclamo, mediante escrito dirigido a <b>INFORPETROL S.A.</b> y radicando su solicitud en la oficina ubicada en la Carrera 18 # 79 – 47 Piso 4. O contactándonos al correo electrónico.</p>
+				</div>
+				<div class="container">
+					<br>
+					<div class="small-separator"></div>
+					<br><br><br>
+				</div>
+
+			</div>
+
+		</div>
+	
+	</div> <!--=============== contenedor fin ===============-->
+		
+</div><!--=============== main fin ===============-->
+ 
+<!--=============== javascript ===============-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4969427978267558"
+     crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jpreloader.min.js"></script>
+	<script type="text/javascript" src="js/smoothscroll.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/superslides.js"></script>
+	<script type="text/javascript" src="js/mixitup.js"></script>
+	<script type="text/javascript" defer src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script type="text/javascript" src="js/hoverdir.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/appear.js"></script>
+	<script type="text/javascript" src="js/jquery.nav.js"></script>
+	<script type="text/javascript" src="js/fitvids.js"></script>
+	<script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
+	<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+<script>
+function validarm() {
+  // alert("Click");
+  // Ajax
+  if (grecaptcha.getResponse(widgetId1)) {
+    $.post("e3nvi3_2msj.php",
+    {
+      nombre: $("#fname").val(),
+      email: $("#femail").val(),
+      mensaje: $("#ftext").val(),
+      recaptcha_response: grecaptcha.getResponse(widgetId1)
+    },
+    function(data,status) {
+      if (status=="success" && data.search("Error:") == -1) {
+        $("#contacto").html(data);
+        $("#fname").val('');
+      	$("#femail").val('');
+      	$("#ftext").val('');
+      	$("#term").attr('checked', false);
+      } else {
+          alert("EData: " + data + "\nEstado: " + status);
+          // $("#contacto").html(data);
+      }
+    });
+    return false;
+  } else {
+    grecaptcha.reset(widgetId1);
+    return false;
+  }
+};
+var widgetId1;
+var verifyCallback = function(response) {
+alert(response);
+};
+var onloadCallback = function() {
+// Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+// The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+widgetId1 = grecaptcha.render('code_1', {
+  'sitekey' : '6LdvWEsUAAAAAG3BmR_-BP8g9yKgr2eaPrpRl45A',
+  'theme' : 'light'
+});
+};
+</script>
+</body>
+</html>

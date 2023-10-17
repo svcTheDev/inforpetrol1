@@ -273,15 +273,19 @@ section {
   height: 100vh;
 }
 
+.company {
+  display: flex;
+}
+
 .company-container {
   position: absolute;
   top: 85%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2rem 4rem #777;
-  width: 50%;
+  width: 55%;
   height: 100%;
-  max-height: 65rem;
+  max-height: 105rem;
   margin: 5rem 15rem 50rem 15rem;
   background-color: white;
 }
@@ -314,4 +318,11 @@ section {
 
 .company-paragraph {
   font-size: 1.7rem;
+}
+
+.company-trait {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 20%;
+  left: 110%;
 }

@@ -1,0 +1,17 @@
+01-27-20 13:58:23	190.93.151.79	INFO	shared	AuthService	Create User	user_id=haroger
+01-27-20 13:59:33	190.93.151.79	INFO	haroger	AuthService	Log In	
+01-27-20 13:59:41	190.93.151.79	INFO	haroger	conf.serial	Switch Repository	rep. id=1
+01-27-20 13:59:52	190.93.151.79	INFO	haroger	conf.serial	Switch Repository	rep. id=ajxp_conf
+01-27-20 14:00:00	190.93.151.79	ERROR	haroger	class.AJXP_Utils.php	error l.1455	message=file_get_contents(http://www.ajaxplorer.info/update/?channel=stable&version=5.2.1&package=pydio-core): failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found 
+01-27-20 14:01:10	190.93.151.79	INFO	haroger	AuthService	Create User	user_id=hocol
+01-27-20 14:01:58	190.93.151.79	INFO	haroger	AuthService	Log Out	
+01-27-20 14:02:16	190.93.151.79	INFO	hocol	AuthService	Log In	
+01-27-20 14:02:41	190.93.151.79	INFO	hocol	access.fs	Upload File	file=my-files//barriga.jpeg
+01-27-20 14:02:42	190.93.151.79	INFO	hocol	access.fs	Upload File	file=my-files//bruja71.jpeg
+01-27-20 14:02:43	190.93.151.79	INFO	hocol	access.fs	Upload File	file=my-files//chilindrina.jpg
+01-27-20 14:06:04	190.93.151.79	INFO	hocol	AuthService	Log Out	
+01-27-20 14:07:10	190.93.151.79	INFO	hocol	AuthService	Log In	
+01-27-20 14:07:51	190.93.151.79	INFO	hocol	AuthService	Log Out	
+01-27-20 14:08:23	190.93.151.79	INFO	hocol	AuthService	Log In	
+01-27-20 14:09:19	190.93.151.79	INFO	hocol	access.fs	Upload File	file=my-files//jirafales.jpeg
+01-27-20 14:09:37	190.93.151.79	INFO	hocol	AuthService	Log Out	

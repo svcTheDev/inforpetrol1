@@ -9,62 +9,95 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-            header {
-              position: relative;
-            }
+       section {
+  background-color: white;
+  height: 100vh;
+}
 
-            /* Style the background image */
-            .background-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* Maintain aspect ratio and cover the entire header */
-            }
+.company {
+  display: flex;
+}
 
-            .video-overlay video {
-                position: absolute;
-                top: 48%;
-                left: 56%;
-                width: 20%;
-                height: 30%;
-                object-fit: cover;
-                opacity: 1; 
-                z-index: 1; 
-            }
-            .grid-container {
-              position: absolute;
-              top: 15%;
-                left: 15%;
-              display: grid;
-              grid-template-columns: auto auto auto;
-              background-color: #2195f300;
-              z-index: 1; 
+.company-container {
+  position: absolute;
+  top: 85%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2rem 4rem #777;
+  width: 50%;
+  height: 100%;
+  max-height: 105rem;
+  margin: 5rem 15rem 50rem 15rem;
+  background-color: white;
+}
 
-            }
-            .grid-item {
-              background-color: rgba(255, 255, 255, 0);
-              border: 1px solid rgba(0, 0, 0, 0.145);
-              padding: 140px 160px;
-              font-size: 30px;
-              text-align: center;
-            }
+.company-about-heading {
+  position: relative;
+  height: 30%;
+  width: 100%;
+  background-image: url(images/bg/1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.company-about-heading h1 {
+  font-size: 36px;
+  position: absolute;
+  top: 60%;
+  color: white;
+  margin-left: 3rem;
+}
+
+.grid-company {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 5px;
+  height: 48rem;
+}
+
+.company-paragraph {
+  font-size: 1.7rem;
+}
+
+.company-trait {
+  position: relative;
+}
 
     </style>
     </head>
 <body>
-  <div style="width: 1440px; height: 1024px; position: relative; background: white">
-    <div style="width: 1178px; height: 808px; left: 131px; top: 108px; position: absolute; background: white; border: 1px black solid"></div>
-    <div style="width: 768px; height: 795px; left: 131px; top: 124px; position: absolute; background: white; box-shadow: 10px 10px 10px; border: 1px black solid; filter: blur(10px)"></div>
-    <div style="width: 767px; height: 252px; left: 132px; top: 33px; position: absolute; background: black"></div>
-    <img style="width: 768px; height: 250px; left: 131px; top: 35px; position: absolute" src="images/bg-1.jpg" />
-    <img style="width: 326px; height: 200px; left: 949px; top: 626px; position: absolute" src="images/header1.jpeg"/>
-    <div style="width: 261px; height: 58px; left: 638px; top: 227px; position: absolute; background: white"></div>
-    <div style="width: 297px; height: 87px; left: 171px; top: 160px; position: absolute; color: white; font-size: 40px; font-family: Inter; font-weight: 400; word-wrap: break-word">NUESTRA COMPAÑÍA</div>
-    <div style="width: 185px; height: 27px; left: 687px; top: 247px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">INFORPETROL S.A</div>
-    <div style="width: 296px; height: 193px; left: 158px; top: 363px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 300; word-wrap: break-word">Es una compañía colombiana al servicio de la industria del petróleo; desde el año 1994 se ha posicionado como una de las principales empresas de procesamiento de datos sísmicos 2D y 3D, brindando soluciones geofísicas a nuestros clientes en Colombia y el exterior.</div>
-    <div style="width: 705px; height: 125px; left: 158px; top: 707px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 300; word-wrap: break-word">Se caracteriza por brindar una política de puertas abiertas para que nuestros clientes nos visiten, revisen su información, el estado de la misma, e interactúen con nosotros en cualquier etapa de la ejecución de los proyectos y así poder obtener la retroalimentación necesaria permitiéndonos generar productos que llenan las expectativas de nuestros clientes.</div>
-    <div style="width: 370px; height: 269px; left: 492px; top: 363px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 300; word-wrap: break-word">Cuenta en su centro de proceso con personal capacitado, experiencia y conocimiento en el procesamiento y manejo de información sísmica que en conjunto con un cluster con capacidad para procesar 400 millones de trazas/mes, nos permite realizar procesamiento con pruebas extensivas sobre datos sísmicos ofreciendo tiempos de respuesta cortos con alta calidad en nuestros productos.</div>
-    <div style="width: 361px; height: 711px; left: 931px; top: 161px; position: absolute"><span style="color: black; font-size: 20px; font-family: Inter; font-weight: 300; word-wrap: break-word">Dispone de software especializado para cada una de las etapas de procesamiento:<br/><br/></span><span style="color: black; font-size: 20px; font-family: Inter; font-weight: 300; word-wrap: break-word">SeisSpace(ProMAX)®: Secuencia básica de procesamiento.<br/>SeismicStudio®: Estáticas de refracción por tomografía. QC de geometrías 2D y 3D.<br/>Tsunami®: PSTM y PSDM azimutales y anisotrópicas.<br/>Rfilt®: Filtro radial predictivo.<br/>Interview-3D: Análisis anisotrópico y Hi-fi.<br/>Techco software: Migración PSTM Isotrópica y Anisotrópica, interpretación de velocidades Estructurales.<br/></span></div>
-  </div>
+  <section>
+    <div class="company">
+      <div class="company-container">
+          <!-- nuestra compañía -->
+            <div class="company-about-heading">
+              <h1>Nuestra compañía</h1>
+            </div>
+          <!-- nuestra compañía title fin -->
+            <div class="grid-company m-5 mb-0">
+              <div class="company-paragraph">Es una compañía colombiana al servicio de la industria del petróleo; desde el año 1994 se ha posicionado como una de las principales empresas de procesamiento de datos sísmicos 2D y 3D, brindando soluciones geofísicas a nuestros clientes en Colombia y el exterior.</div>
+              <div class="company-paragraph">Cuenta en su centro de proceso con personal capacitado, experiencia y conocimiento en el procesamiento y manejo de información sísmica que en conjunto con un cluster con capacidad para procesar 400 millones de trazas/mes, nos permite realizar procesamiento con pruebas extensivas sobre datos sísmicos ofreciendo tiempos de respuesta cortos con alta calidad en nuestros productos.</div>
+              <div class="company-paragraph">Se caracteriza por brindar una política de puertas abiertas para que nuestros clientes nos visiten, revisen su información, el estado de la misma, e interactúen con nosotros en cualquier etapa de la ejecución de los proyectos </div>
+              <div class="company-paragraph">y así poder obtener la retroalimentación necesaria permitiéndonos generar productos que llenan las expectativas de nuestros clientes.</div>
+            </div>
+      </div>
+            <!--  -->
+            <div class="company-trait">
+              <p>Dispone de software especializado para cada una de las etapas de procesamiento:</p>
+              <ul>
+                <li><b>SeisSpace(ProMAX)®:</b> Secuencia básica de procesamiento.</li>
+                <li><b>SeismicStudio®:</b> Estáticas de refracción por tomografía. QC de geometrías 2D y 3D.</li>
+                <li><b>Tsunami®:</b> PSTM y PSDM azimutales y anisotrópicas.</li>
+                <li><b>Rfilt®:</b> Filtro radial predictivo.</li>
+                <li><b>Interview-3D:</b> Análisis anisotrópico y Hi-fi.</li>
+                <li><b>Techco software:</b> Migración PSTM Isotrópica y Anisotrópica, interpretación de velocidades Estructurales.</li>
+              </ul>              
+            </div>
+    </div>
+  </section>
+
   <script src="script_test.js"></script>
 </body>
 </html>
